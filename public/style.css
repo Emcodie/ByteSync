@@ -218,8 +218,8 @@ BUTTONS
 }
 
 .footer-container {
-    width:min(90%,900px);
-  margin:  auto;
+  width: min(90%, 900px);
+  margin: auto;
   padding: 0;
   text-align: center;
 }
@@ -230,31 +230,26 @@ BUTTONS
   color: #d1d5db;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
+  text-decoration: none;
+  color: #2563eb;
 
-text-decoration:none;
-color:#2563eb;
-
-font-size:1.8rem;
-font-weight:700;
-
-
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
-.logo:hover
-
-.logo svg{
-width:30px;
-height:30px;
-transition:.2s;
+.logo:hover .logo svg {
+  width: 30px;
+  height: 30px;
+  transition: 0.2s;
 }
 
-.logo:hover svg{
-transform:rotate(-10deg);
+.logo:hover svg {
+  transform: rotate(-10deg);
 }
 
 /* =========================
@@ -262,39 +257,37 @@ RESPONSIVE
 ========================= */
 
 @media (max-width: 768px) {
-.header-container {
-flex-direction: column;
-gap: 12px;
-text-align: center;
-}
+  .header-container {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
 
-@media (max-width:768px){
-
-.site-nav{
-    width:100%;
-    justify-content:center;
-    gap:15px;
-}
-
-}
+  @media (max-width: 768px) {
+    .site-nav {
+      width: 100%;
+      justify-content: center;
+      gap: 15px;
+    }
+  }
 }
 
 @media (max-width: 480px) {
-.logo {
-font-size: 1.5rem;
-}
+  .logo {
+    font-size: 1.5rem;
+  }
 
-.site-nav {
-gap: 12px;
-}
+  .site-nav {
+    gap: 12px;
+  }
 
-.site-nav a {
-font-size: 0.95rem;
-}
+  .site-nav a {
+    font-size: 0.95rem;
+  }
 
-.footer-container {
-padding: 20px 15px;
-}
+  .footer-container {
+    padding: 20px 15px;
+  }
 }
 
 /* =========================
@@ -318,18 +311,47 @@ RESPONSIVE
 
 @media (max-width: 480px) {
   .container {
-    width: 95%;
+    width: 94%;
+    margin: 25px auto;
+  }
+
+  .hero {
+    padding: 25px 0;
+    margin-bottom: 30px;
   }
 
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
   }
 
   .hero p {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    max-width: 320px;
+    margin: 0 auto 25px;
+    line-height: 1.6;
+  }
+
+  .create-btn input[type="submit"] {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .empty-state {
+    padding: 30px 20px;
   }
 
   .post {
     padding: 18px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions form,
+  .actions input[type="submit"] {
+    width: 100%;
   }
 }
