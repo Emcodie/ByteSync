@@ -4,7 +4,7 @@ let posts = [];
 let postIdentifier = 1;
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,32 +21,26 @@ app.get("/new", (req, res) => {
 
 app.post("/create", (req, res) => {
   const { title, content } = req.body;
-  // Logic to save the new post will go here
-  posts.push({  id: postIdentifier++, title, content });
+
+  if (!title.trim() || !content.trim()) {
+    return res.redirect("/");
+  }
+
+  posts.push({
+    id: postIdentifier++,
+    title,
+    content,
+  });
+
   console.log("New Post Submitted:");
   console.log("Title:", title);
   console.log("Content:", content);
+
   res.redirect("/");
 });
 
-app.post("/create", (req, res) => {
-const { title, content } = req.body;
 
-if (!title.trim() || !content.trim()) {
-return res.redirect("/");
-}
-
-posts.push({
-id: postIdentifier++,
-title,
-content
-});
-
-res.redirect("/");
-});
-
-
-app.get(("/edit/:id"), (req,res) => { 
+app.get("/edit/:id", (req,res) => { 
    console.log(posts);
   res.render("edit.ejs", { post: posts.find(post => post.id === parseInt(req.params.id)) });
  
@@ -73,7 +67,6 @@ app.post( "/delete", (req,res)=>{
 
 
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-
