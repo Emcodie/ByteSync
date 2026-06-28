@@ -272,6 +272,10 @@ RESPONSIVE
     gap: 20px;
     flex-wrap: wrap;
   }
+  
+  .hero {
+    padding: 20px 0;
+}
 
 }
 
