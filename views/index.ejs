@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ByteSync</title>
+    <link rel="stylesheet" href="/style.css"/>   
+  </head>
+
+  <body>
+   <body>
+
+<%- include("partials/header.ejs") %>
+
+  <main class="container">
+
+<section class="hero">
+  <h1>Welcome to ByteSync</h1>
+  <p>Share your ideas, stories, and experiences with the world.</p>
+
+  <div class="create-btn">
+    <form action="/new" method="get">
+      <input type="submit" value="+ Create New Post">
+    </form>
+  </div>
+</section>
+
+<% if (posts.length === 0) { %>
+
+  <div class="empty-state">
+    <h2>No posts yet.</h2>
+    <p>Be the first to share your thoughts!</p>
+  </div>
+
+<% } else { %>
+
+  <% posts.forEach(post => { %>
+
+    <article class="post">
+
+      <h3><%= post.title %></h3>
+
+      <p><%= post.content %></p>
+
+      <div class="actions">
+
+        <form action="/edit/<%= post.id %>" method="get">
+          <input type="submit" value="Edit">
+        </form>
+
+        <form action="/delete" method="post">
+          <input type="hidden" name="id" value="<%= post.id %>">
+          <input type="submit" value="Delete">
+        </form>
+
+      </div>
+
+    </article>
+
+  <% }); %>
+
+<% } %>
+
+
+  </main>
+
+<%- include("partials/footer.ejs") %>
+
+</body>
+
+  </body>
+</html>

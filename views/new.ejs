@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Post</title>
+   <style>
+    /* CREATE POST PAGE */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+  }
+
+body {
+background: linear-gradient(135deg, #eef4ff, #f8fbff);
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 30px;
+}
+
+.edit-container {
+width: 100%;
+max-width: 850px;
+background: #fff;
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 15px 40px rgba(0,0,0,.12);
+}
+
+/* Top banner */
+
+.edit-header {
+background: linear-gradient(135deg,#2563eb,#3b82f6);
+color: white;
+padding: 30px;
+text-align: center;
+}
+
+.edit-header h1 {
+font-size: 2rem;
+margin-bottom: 8px;
+}
+
+.edit-header p {
+opacity: .9;
+}
+
+/* Form */
+
+form {
+padding: 35px;
+display: flex;
+flex-direction: column;
+gap: 18px;
+}
+
+label {
+font-size: 15px;
+font-weight: 600;
+color: #374151;
+}
+
+input[type="text"],
+textarea {
+width: 100%;
+border: 1px solid #d1d5db;
+border-radius: 10px;
+padding: 14px;
+font-size: 16px;
+transition: .25s;
+}
+
+textarea {
+min-height: 260px;
+resize: vertical;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+outline: none;
+border-color: #2563eb;
+box-shadow: 0 0 0 4px rgba(37,99,235,.15);
+}
+
+/* Button */
+
+input[type="submit"] {
+margin-top: 10px;
+padding: 15px;
+border: none;
+border-radius: 10px;
+background: linear-gradient(135deg,#2563eb,#3b82f6);
+color: white;
+font-size: 16px;
+font-weight: 600;
+cursor: pointer;
+transition: .25s;
+}
+
+input[type="submit"]:hover {
+transform: translateY(-2px);
+box-shadow: 0 8px 20px rgba(37,99,235,.35);
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+body{
+padding:20px;
+}
+
+form{
+padding:25px;
+}
+
+.edit-header{
+padding:24px;
+}
+
+.edit-header h1{
+font-size:1.6rem;
+}
+
+}
+
+@media (max-width:480px){
+
+body{
+padding:12px;
+}
+
+form{
+padding:18px;
+}
+
+.edit-header h1{
+font-size:1.4rem;
+}
+
+input[type="submit"]{
+width:100%;
+}
+
+}
+
+
+   </style>
+  </head>
+  <body>
+   <body>
+
+  <div class="edit-container">
+
+
+<div class="edit-header">
+  <h1>Create a New Post</h1>
+  <p>Share your thoughts with the ByteSync community.</p>
+</div>
+
+<form action="/create" method="POST">
+
+  <label for="title">Title</label>
+  <input
+    type="text"
+    id="title"
+    name="title"
+    placeholder="Enter your post title..."
+    required
+  />
+
+  <label for="content">Content</label>
+  <textarea
+    id="content"
+    name="content"
+    placeholder="What's on your mind today?"
+    required
+  ></textarea>
+
+  <input type="submit" value="Publish Post" />
+
+</form>
+
+
+  </div>
+
+</body>
+
+  </body>
+</html>
